@@ -9,10 +9,11 @@ class MemberThumb extends Component{
             repos: []
         }
     }
-    fetchRepos = (member) => {
+
+    fetchRepos = () => {
         console.log("Fetching repos");
-        member = this.props.member;
-        fetch(member.repos_url,{method:'GET'})
+        const member = this.props.member;
+        fetch(member.repos_url,{method: 'GET'})
             .then(res =>{
                 if(!res.ok){
                     console.log("error")
@@ -24,12 +25,12 @@ class MemberThumb extends Component{
                 if(!memberRepos){
                     return "This user has no repos"
                 }
-                this.setState({repos:memberRepos});
+                this.setState({repos: memberRepos});
             })
     }
 
-    componentWillMount(member){
-        return this.fetchRepos(member)
+    componentDidMount(){
+        return this.fetchRepos()
     }
     
     render(){
@@ -37,13 +38,10 @@ class MemberThumb extends Component{
         return(
             <Grid>
                 <Row>
-                <Col xs={6} md={4}>
+                <Col xs={6} md={10}>
                 <Thumbnail src={member.avatar_url} alt="242x200" className="img-responsive">
                     <h3>{member.login}</h3>
                     <RepoList repos={this.state.repos}/>
-                    <p>
-                    <Button bsStyle="primary">Repo details</Button>&nbsp;
-                    </p>
                 </Thumbnail>
                 </Col>
                 </Row>

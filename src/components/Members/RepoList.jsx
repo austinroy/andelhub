@@ -4,13 +4,14 @@ import RepoListBody from './RepoListBody'
 
 class RepoList extends Component {
     render(){
-        const repos = this.props.repos;
         return (
             <Table>
                 <thead>
                     <tr>
                         <th>#</th>
                         <th>Repo Name</th>
+                        <th>Language</th>
+                        <th>Description</th>
                     </tr>
                 </thead>
                 {this.props.repos.map((repo, index) =>{
