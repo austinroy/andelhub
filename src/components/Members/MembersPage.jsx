@@ -34,7 +34,7 @@ class MembersPage extends Component {
     let { members } = this.props;
     const { searchVal } = this.state;
 
-    if(searchVal == ''){
+    if(searchVal === ''){
       return {members}
     } else {
       const allMembers = members;

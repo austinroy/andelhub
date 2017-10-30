@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Grid, Col, Row, Thumbnail, Button } from 'react-bootstrap';
+import {Grid, Col, Row, Thumbnail } from 'react-bootstrap';
 import RepoList from './RepoList';
 import SearchRepos from './SearchRepos';
 
@@ -46,7 +46,7 @@ class MemberThumb extends Component{
         let repos = this.state.repos;
         const { searchVal } = this.state;
     
-        if(searchVal == ''){
+        if(searchVal === ''){
           return this.setState({repos: repos})
         } else {
           const allRepos = repos;
@@ -58,7 +58,6 @@ class MemberThumb extends Component{
     render(){
         const member = this.props.member;
         const {repos} = this.state.repos;
-        console.log(repos);
         return(
             <Grid>
                 <Row>

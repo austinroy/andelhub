@@ -4,7 +4,6 @@ class RepoListBody extends Component {
 
     render(){
         const {repo, index} = this.props;
-        const repo_url = "/repo/" + repo.id
         return (
             <tbody>
                     <tr>
