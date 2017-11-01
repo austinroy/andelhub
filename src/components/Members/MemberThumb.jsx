@@ -30,6 +30,7 @@ class MemberThumb extends Component{
                     return []
                 }
                 this.setState({repos: memberRepos});
+                this.setState({allRepos: memberRepos});
             })
     }
 
@@ -44,10 +45,11 @@ class MemberThumb extends Component{
     
     updateRepos(){
         let repos = this.state.repos;
+        const allRepos = this.state.allRepos;
         const { searchVal } = this.state;
     
         if(searchVal === ''){
-          return this.setState({repos: repos})
+          return this.setState({repos: allRepos})
         } else {
           const allRepos = repos;
           repos = allRepos.filter((repo => repo.name.match(new RegExp(searchVal))));

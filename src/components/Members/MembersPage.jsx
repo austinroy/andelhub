@@ -27,7 +27,6 @@ class MembersPage extends Component {
 
   handleSearch(val){
     this.setState({searchVal: val})
-    this.updateMembers();
   }
 
   updateMembers(){
